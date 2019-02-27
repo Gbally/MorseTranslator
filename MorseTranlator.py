@@ -45,7 +45,7 @@ class MorseTranlator:
             self.morse_dic_reversed = {v: k for k, v in self.morse_dic.iteritems()}
         except AttributeError:
             # For python3
-            self.morse_dic_reversed = {v: k for k, v in the_class.morse.items()}
+            self.morse_dic_reversed = {v: k for k, v in self.morse_dic.items()}
 
     def translate(self, s):
         """
