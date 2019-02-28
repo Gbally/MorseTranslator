@@ -80,8 +80,17 @@ As Morse code does not support capital letters, the output of a Morse code
 will always be in lower case. Up to you to add an capital letter on the first
  letter of the sentence and after a dot.
 
+## Morse sound generator
+This is way above my knowledge. All the code that will create the sound of 
+yhe morse code is from Zach Denton, inspired by [Generate Audio with Python]
+(https://zach.se/generate-audio-with-python/), but the entire code used is 
+from his repo [wavebender](https://github.com/zacharydenton/wavebender).
+
+WIP - not functional yet
+
+
 ## TODO
 - Fix bug when found
-- Add option to play morse sounds
+- Add option to play morse sounds (WIP)
 - Add compatibility with special extension (might not be compatible with 
 python2)
