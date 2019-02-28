@@ -33,8 +33,8 @@ __maintainer__ = 'Guillaume'
 
 # [Functions]-------------------------------------------------------------------
 def main(test):
-    mt.translate(test)
-
+    # mt.translate(test)
+    mt.generate_sound(test)
 
 # [MAIN]-----------------------------------------------------------------------
 if __name__ == '__main__':
