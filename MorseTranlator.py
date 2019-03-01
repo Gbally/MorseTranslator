@@ -101,56 +101,49 @@ class MorseTranlator:
         file = "test.wav"
         w = init_wave(file)
         frame = ""
-        unit = 1
+
 
         elements = re.split(" ", morse)
 
-        for e in elements:
-            for i in e:
-                if i == ".":
-                    # a TIH is one unit
-                    channels = ((sine_wave(500.0, amplitude=0.1),),
-                                (sine_wave(500.0, amplitude=0.1),))
+        # for e in elements:
+        #     for i in e:
+        #         if i == ".":
+        #             # a TIH is one unit
+        #             channels = ((sine_wave(500.0, amplitude=0.1),),
+        #                         (sine_wave(500.0, amplitude=0.1),))
+        #
+        #             samples = compute_samples(channels, 44100 * unit)
+        #             samples_pause = compute_samples(channels, 44100 * unit * 3)
+        #
+        #             frame += write_wavefile(w, samples)
+        #             frame += write_wavefile(w, samples_pause)
+        #
+        #         elif i == "-":
+        #             # A TAH is three unit
+        #             channels = ((sine_wave(500.0, amplitude=0.1),),
+        #                         (sine_wave(500.0, amplitude=0.1),))
+        #
+        #             samples = compute_samples(channels, 44100 * unit * 3)
+        #             samples_pause = compute_samples(channels, 44100 * unit * 3)
+        #
+        #             frame += write_wavefile(w, samples)
+        #             frame += write_wavefile(w, samples_pause)
+        #
+        #         elif i == "/":
+        #             # A space between words is 5 units, but 7 are recommended
+        #             channels = ((sine_wave(500.0, amplitude=0.1),),
+        #                         (sine_wave(500.0, amplitude=0.1),))
+        #
+        #             # Pause of the previous i + between words pause
+        #             samples = compute_samples(channels, 44100 * unit * 4)
+        #
+        #             frame += write_wavefile(w, samples)
+        #
+        # write_frames(w, frame)
+        #
+        # close_wave(w)
 
-                    samples = compute_samples(channels, 44100 * unit)
-                    samples_pause = compute_samples(channels, 44100 * unit * 3)
-
-                    frame += write_wavefile(w, samples)
-                    frame += write_wavefile(w, samples_pause)
-
-                elif i == "-":
-                    # A TAH is three unit
-                    channels = ((sine_wave(500.0, amplitude=0.1),),
-                                (sine_wave(500.0, amplitude=0.1),))
-
-                    samples = compute_samples(channels, 44100 * unit * 3)
-                    samples_pause = compute_samples(channels, 44100 * unit * 3)
-
-                    frame += write_wavefile(w, samples)
-                    frame += write_wavefile(w, samples_pause)
-
-                elif i == "/":
-                    # A space between words is 5 units, but 7 are recommended
-                    channels = ((sine_wave(500.0, amplitude=0.1),),
-                                (sine_wave(500.0, amplitude=0.1),))
-
-                    # Pause of the previous i + between words pause
-                    samples = compute_samples(channels, 44100 * unit * 4)
-
-                    frame += write_wavefile(w, samples)
-
-        write_frames(w, frame)
-
-        close_wave(w)
-
-
-
-
-
-
-
-
-
+        # ----------------------------------------------------------------
 
         # channels = ((sine_wave(500.0, amplitude=0.1),),
         #             (sine_wave(500.0, amplitude=0.1),))
@@ -158,3 +151,23 @@ class MorseTranlator:
         # samples = compute_samples(channels, 44100 * 1)
         #
         # write_wavefile(file, samples)
+
+        # ----------------------------------------------------------------
+
+        unit = 1
+
+        channels = ((sine_wave(500.0, amplitude=0.1),),
+                    (sine_wave(500.0, amplitude=0.1),))
+
+        # channels_silence = ((sine_wave(500.0, amplitude=0.1),),
+        #             (sine_wave(500.0, amplitude=0.1),))
+
+        samples = compute_samples(channels, 44100 * 10)
+        # samples_pause = compute_samples(channels_silence, 44100 * unit * 3)
+
+        frame += write_wavefile(w, samples)
+        # frame += write_wavefile(w, samples_pause)
+
+        write_frames(w, frame)
+
+        close_wave(w)
